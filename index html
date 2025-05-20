@@ -1,68 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Titanium Browser</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    #navbar {
-      display: flex;
-      padding: 10px;
-      background-color: #2c3e50;
-      color: white;
-    }
-    #address-bar {
-      flex: 1;
-      padding: 6px;
-      font-size: 16px;
-      border: none;
-      border-radius: 4px;
-    }
-    #go-btn {
-      padding: 6px 12px;
-      margin-left: 10px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    iframe {
-      width: 100%;
-      height: calc(100vh - 50px);
-      border: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Browser</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="navbar">
-    <input type="text" id="address-bar" placeholder="Enter URL or search..." />
-    <button id="go-btn">Go</button>
-  </div>
-  <iframe id="browser-view" src="https://www.google.com"></iframe>
+    <div class="browser-container">
+        <div class="header">
+            <input type="text" id="url-input" placeholder="Enter URL..." />
+            <button id="load-btn">Go</button>
+            <div id="current-url" class="current-url">Current URL: <span id="url-display">None</span></div>
+        </div>
+        <div class="content">
+            <iframe id="browser-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
 
-  <script>
-    const goBtn = document.getElementById('go-btn');
-    const addressBar = document.getElementById('address-bar');
-    const browserView = document.getElementById('browser-view');
-
-    function navigate() {
-      let input = addressBar.value.trim();
-      if (!input) return;
-
-      if (!input.startsWith("http")) {
-        input = "https://www.google.com/search?q=" + encodeURIComponent(input);
-      }
-      browserView.src = input;
-    }
-
-    goBtn.addEventListener('click', navigate);
-    addressBar.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        navigate();
-      }
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
