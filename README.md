@@ -1,2 +1,2 @@
 # Titanium-browser
-a chromium reskin the non-google way.
+a pure css javascript and html broswer
