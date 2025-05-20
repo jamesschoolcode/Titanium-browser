@@ -11,6 +11,7 @@
         <div class="header">
             <input type="text" id="url-input" placeholder="Enter URL..." />
             <button id="load-btn">Go</button>
+            <div id="current-url" class="current-url">Current URL: <span id="url-display">None</span></div>
         </div>
         <div class="content">
             <iframe id="browser-frame" src="" frameborder="0"></iframe>
@@ -20,3 +21,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
